@@ -1,4 +1,7 @@
 {
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features",
+    },
     "editor.parameterHints.enabled": true,
     "liveServer.settings.multiRootWorkspaceName": "website",
     "liveServer.settings.port": 5501
