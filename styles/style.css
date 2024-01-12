@@ -86,13 +86,14 @@
   width: 100%;
   user-select: none;
   padding: 0 2%;
-  min-height: 200px;
+  height: 30vh;
 }
 
 .rotator-item {
   align-items: center;
   display: flex;
   justify-content: center;
+  transition: width .25s;
 }
 
 .rotator-item img {

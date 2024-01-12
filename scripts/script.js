@@ -44,4 +44,9 @@ document.addEventListener("DOMContentLoaded", function() {
             menuToggle.checked = false;
         }
     })
+
+    // Implement rotator functionality in separate instances
+    document.querySelectorAll('.rotator').forEach((rotatorElement) => {
+        new Rotator(rotatorElement);
+    });
 });
