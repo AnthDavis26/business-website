@@ -37,30 +37,21 @@ class Rotator {
     updateItemClasses() {
         const n = this.items.length;
         const midIndex = Math.floor(this.items.length / 2);
-        const minWidth = 25;
-        const maxWidth = 100;
-        const widthMultiplier = 2;
-        const minOpacity = 20;
+        const minFlex = 1;
+        const flexMultiplier = 3;
+        const minOpacity = 50;
         const maxOpacity = 100;
-        const opacityMultiplier = 3;
-
-        let opacity = minOpacity;
-        let height = minWidth;
-
-        for (let i = 0; i < midIndex; i++) {
-            this.items[i].style.setProperty('width', height + '%');
-            height *= widthMultiplier;
+    
+        let flex = minFlex;
+        
+        for (let i = 0; i < n; i++) {
+            const distanceToMiddle = Math.abs(midIndex - i);
+            const opacity = minOpacity + (maxOpacity - minOpacity) * (1 - distanceToMiddle / midIndex);
+    
+            this.items[i].style.setProperty('flex-grow', flex);
             this.items[i].style.setProperty('opacity', opacity + '%');
-            opacity *= opacityMultiplier;
+    
+            flex *= i < midIndex ? flexMultiplier : 1 / flexMultiplier;
         }
-
-        for (let i = midIndex; i < n; i++) {
-            this.items[i].style.setProperty('width', height + '%');
-            height /= widthMultiplier;
-            this.items[i].style.setProperty('opacity', opacity + '%');
-            opacity /= opacityMultiplier;
-        }
-
-        this.items[midIndex].style.setProperty('opacity', maxOpacity + '%');
     }
 }
